@@ -1,0 +1,9 @@
+- id: ldap_plugin
+  type: puppet
+  groups: [primary-controller, controller]
+  required_for : [deploy_end]
+  requires: [keystone-db, keystone, horizon, heat]
+  parameters:
+    puppet_manifest: "puppet/manifests/controller_site.pp"
+    puppet_modules: "puppet/modules/:/etc/puppet/modules/"
+    timeout: 3600
